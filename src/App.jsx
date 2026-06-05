@@ -1,17 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useState } from "react"
+import Navbar from "./components/Navbar"
+import Hero from "./components/Hero"
+import Cards from "./components/Cards"
+import Footer from "./components/Footer"
 import './App.css'
 
 function App() {
-  
+  const [darkMode, setDarkMode] = useState(false)
+  const [mensaje, setMensaje] = useState("")
 
   return (
-    <>
-      <h1>Bienvenidos al taller de React</h1>
-      <p>Mi nombre es Cristopher Xavier Mendoza Naula</p>
-    </>
+    <div className={darkMode ? "dark" : "light"}>
+      <Navbar darkMode={darkMode} toggleDark={() => setDarkMode(!darkMode)} setMensaje={setMensaje} />
+      <Hero mensaje={mensaje} />
+      <Cards />
+      <Footer />
+    </div>
   )
 }
 
